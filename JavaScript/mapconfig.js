@@ -111,3 +111,31 @@ AutocompleteDirectionsHandler.prototype.route = function () {
             }
         });
 };
+
+//https://maps.googleapis.com/maps/api/distancematrix/json?units=
+
+// const userAction = async () => {
+//     console.log("myJson");
+//     const response = await fetch('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms');
+//     const myJson = await response.json(); //extract JSON from the http response
+//     // do something with myJson
+
+//     console.log(myJson);
+// }
+
+$.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms', function (data) {
+    console.log(data);
+});
+
+// function Get(yourUrl) {
+//     var Httpreq = new XMLHttpRequest(); // a new request
+//     Httpreq.open("GET", yourUrl, false);
+//     Httpreq.send(null);
+//     return Httpreq.responseText;
+// }
+
+// var yourUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms";
+// var json_obj = JSON.parse(Get(yourUrl));
+// console.log("this is the author name: " + json_obj.author_name);
+
+//https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Victoria+BC&mode=bicycling&language=fr-FR&key=YOUR_API_KEY
