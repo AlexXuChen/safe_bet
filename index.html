@@ -8,17 +8,28 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" width="100%" href="Images/favicon.png">
+    <script type="text/javascript" src="JavaScript/script.js"></script>
 </head>
 
 <body>
-    <div id="map"></div>
+    <!-- <div id="map"></div>
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms&callback=initMap">
     </script>
 
     <script src="JavaScript/mapconfig.js">
-    </script>
+    </script> -->
+
+    <form>
+        <input type="text" id=1 value="0"/>
+        <input type="button" onclick="incrementValue(1, 1)" value="Increment Value" />
+     </form>
+
+     <form>
+        <input type="text" id=2 value="0"/>
+        <input type="button" onclick="incrementValue(2, 20)" value="Increment Value" />
+     </form>
 </body>
 
 </html>
