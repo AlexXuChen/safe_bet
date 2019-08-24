@@ -7,5 +7,6 @@ const gameData = {
     ...driveDataStub
   ],
   thresholdDrives: 1,
-  thresholdTimeElapsed: 1000
+  timeDeviation: 120000,
+  invalidTripThreshold: 0
 }

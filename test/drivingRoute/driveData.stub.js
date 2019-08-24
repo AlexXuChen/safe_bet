@@ -16,6 +16,6 @@ const stubData = {
     estimatedDuration: 3600000,
     kilometresTravelled: 50}
   ],
-  totalTimeDifference: 600000,
+  invalidTrips: 0,
   eligible: false
 }
