@@ -123,19 +123,37 @@ AutocompleteDirectionsHandler.prototype.route = function () {
 //     console.log(myJson);
 // }
 
-$.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms', function (data) {
-    console.log(data);
-});
+// $.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms', function (data) {
+//     console.log(data);
+// });
 
-// function Get(yourUrl) {
-//     var Httpreq = new XMLHttpRequest(); // a new request
-//     Httpreq.open("GET", yourUrl, false);
-//     Httpreq.send(null);
-//     return Httpreq.responseText;
-// }
 
-// var yourUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms";
-// var json_obj = JSON.parse(Get(yourUrl));
-// console.log("this is the author name: " + json_obj.author_name);
+// var url = 'https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms';
 
-//https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Victoria+BC&mode=bicycling&language=fr-FR&key=YOUR_API_KEY
+// http.get(url, function (res) {
+//     var body = '';
+
+//     res.on('data', function (chunk) {
+//         body += chunk;
+//     });
+
+//     res.on('end', function () {
+//         var fbResponse = JSON.parse(body);
+//         console.log("Got a response: ", fbResponse.picture);
+//     });
+// }).on('error', function (e) {
+//     console.log("Got an error: ", e);
+// });
+
+// // function Get(yourUrl) {
+// //     var Httpreq = new XMLHttpRequest(); // a new request
+// //     Httpreq.open("GET", yourUrl, false);
+// //     Httpreq.send(null);
+// //     return Httpreq.responseText;
+// // }
+
+// // var yourUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms";
+// // var json_obj = JSON.parse(Get(yourUrl));
+// // console.log("this is the author name: " + json_obj.author_name);
+
+// //https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Victoria+BC&mode=bicycling&language=fr-FR&key=YOUR_API_KEY
