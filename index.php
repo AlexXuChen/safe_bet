@@ -72,6 +72,7 @@ curl_close ($curl_handle);
     </script>
 
     <script src="lib\timeCalculation\timeCalculation.js"></script>
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms&libraries=places&callback=initMap"
         async defer></script>
