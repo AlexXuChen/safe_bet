@@ -381,7 +381,7 @@ $('.mapButton').click(function () {
     destination = "place_id:" + destination;
 
 
-    console.log("This is the url for the json we need to parse" + "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms");
+    console.log("This is the url for the json we need to parse: " + "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms");
 
     $.ajax({
         type: "POST",
