@@ -1,0 +1,29 @@
+{
+  "name": "safe_bet",
+  "version": "1.0.0",
+  "description": "Safe drive, safe bet",
+  "main": "index.html",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexXuChen/safe_bet.git"
+  },
+  "keywords": [
+    "driving",
+    "safety"
+  ],
+  "author": "Alex C, Michael Q, Sufiyaan N",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexXuChen/safe_bet/issues"
+  },
+  "homepage": "https://github.com/AlexXuChen/safe_bet#readme",
+  "dependencies": {
+    "timediff": "^1.1.1"
+  }
+}
