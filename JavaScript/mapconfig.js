@@ -2,6 +2,9 @@
 // parameter when you first load the API. For example:
 // <script
 // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+var origin;
+var destination;
+var travelType;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -302,6 +305,7 @@ AutocompleteDirectionsHandler.prototype.setupClickListener = function (
 
     radioButton.addEventListener('click', function () {
         me.travelMode = mode;
+        travelType = mode;
         me.route();
     });
 };
@@ -328,11 +332,14 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
 };
 
 AutocompleteDirectionsHandler.prototype.route = function () {
-    console.log(this.destinationPlaceId);
+
     if (!this.originPlaceId || !this.destinationPlaceId) {
         return;
     }
     var me = this;
+
+    origin = this.originPlaceId;
+    destination = this.destinationPlaceId;
 
     this.directionsService.route({
             origin: {
@@ -359,3 +366,33 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
+
+
+
+$('.mapButton').click(function () {
+    // origin = document.getElementById("origin-input").value;
+    // origin = origin.replace(/,\s/g, "+");
+    // origin = origin.replace(/\s/g, "+");
+
+    origin = "place_id:" + origin;
+    // destination = document.getElementById("destination-input").value;
+    // destination = origin.replace(/,\s/g, "+");
+    // destination = origin.replace(/\s/g, "+");
+    destination = "place_id:" + destination;
+
+
+    console.log("This is the url for the json we need to parse" + "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms");
+
+    $.ajax({
+        type: "POST",
+        url: "PHP/getETA.php",
+        data: {
+            origin: origin,
+            destination: destination
+        }
+    }).done(function (msg) {
+        console.log("Data Saved: " + msg);
+    });
+
+
+});
