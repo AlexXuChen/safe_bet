@@ -240,7 +240,7 @@ function initMap() {
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent('You\'re here.');
             infoWindow.open(map);
             map.setCenter(pos);
         }, function () {
@@ -328,6 +328,7 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
 };
 
 AutocompleteDirectionsHandler.prototype.route = function () {
+    console.log(this.destinationPlaceId);
     if (!this.originPlaceId || !this.destinationPlaceId) {
         return;
     }
