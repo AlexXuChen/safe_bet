@@ -4,14 +4,253 @@
 // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        mapTypeControl: false,
+    map = new google.maps.Map(document.getElementById('map'), {
         center: {
-            lat: -33.8688,
-            lng: 151.2195
+            lat: 43.5500342,
+            lng: -79.7599573
         },
-        zoom: 13
+        zoom: 18,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false,
+        styles: [{
+                "featureType": "all",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                        "color": "#7c93a3"
+                    },
+                    {
+                        "lightness": "-10"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.country",
+                "elementType": "geometry",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            },
+            {
+                "featureType": "administrative.country",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "color": "#a0a4a5"
+                }]
+            },
+            {
+                "featureType": "administrative.province",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "color": "#62838e"
+                }]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#dde3e3"
+                }]
+            },
+            {
+                "featureType": "landscape.man_made",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                        "color": "#3f4a51"
+                    },
+                    {
+                        "weight": "0.30"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "simplified"
+                }]
+            },
+            {
+                "featureType": "poi.attraction",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            },
+            {
+                "featureType": "poi.business",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "poi.government",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "weight": "1.09"
+                }]
+            },
+            {
+                "featureType": "poi.place_of_worship",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "poi.school",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "poi.sports_complex",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [{
+                        "saturation": "-100"
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#bbcacf"
+                }]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                        "lightness": "0"
+                    },
+                    {
+                        "color": "#bbcacf"
+                    },
+                    {
+                        "weight": "0.50"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "labels",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "labels.text",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#ffffff"
+                }]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "color": "#a9b4b8"
+                }]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                "stylers": [{
+                        "invert_lightness": true
+                    },
+                    {
+                        "saturation": "-7"
+                    },
+                    {
+                        "lightness": "3"
+                    },
+                    {
+                        "gamma": "1.80"
+                    },
+                    {
+                        "weight": "0.01"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#a3c7df"
+                }]
+            }
+        ]
     });
+
+    infoWindow = new google.maps.InfoWindow;
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+        }, function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+
 
     new AutocompleteDirectionsHandler(map);
 }
@@ -112,48 +351,10 @@ AutocompleteDirectionsHandler.prototype.route = function () {
         });
 };
 
-//https://maps.googleapis.com/maps/api/distancematrix/json?units=
-
-// const userAction = async () => {
-//     console.log("myJson");
-//     const response = await fetch('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms');
-//     const myJson = await response.json(); //extract JSON from the http response
-//     // do something with myJson
-
-//     console.log(myJson);
-// }
-
-// $.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms', function (data) {
-//     console.log(data);
-// });
-
-
-// var url = 'https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms';
-
-// http.get(url, function (res) {
-//     var body = '';
-
-//     res.on('data', function (chunk) {
-//         body += chunk;
-//     });
-
-//     res.on('end', function () {
-//         var fbResponse = JSON.parse(body);
-//         console.log("Got a response: ", fbResponse.picture);
-//     });
-// }).on('error', function (e) {
-//     console.log("Got an error: ", e);
-// });
-
-// // function Get(yourUrl) {
-// //     var Httpreq = new XMLHttpRequest(); // a new request
-// //     Httpreq.open("GET", yourUrl, false);
-// //     Httpreq.send(null);
-// //     return Httpreq.responseText;
-// // }
-
-// // var yourUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms";
-// // var json_obj = JSON.parse(Get(yourUrl));
-// // console.log("this is the author name: " + json_obj.author_name);
-
-// //https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Victoria+BC&mode=bicycling&language=fr-FR&key=YOUR_API_KEY
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+}
