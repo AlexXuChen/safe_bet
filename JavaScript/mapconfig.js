@@ -123,7 +123,7 @@ AutocompleteDirectionsHandler.prototype.route = function () {
 //     console.log(myJson);
 // }
 
-$.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms', function (data) {
+$.getJSON('https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC&destinations=Victoria+BC&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms', function (data) {
     console.log(data);
 });
 
