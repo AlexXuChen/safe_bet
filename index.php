@@ -59,8 +59,10 @@ curl_close ($curl_handle);
 
 ?>
     <h1>Actual Travel Time: <span id='actualTime'></span>s</h1>
-    <button>Start Timer</button>
-    <button>Stop Timer</button>
+    <input id="startButton" type="button" value="Start Timer" onclick="setTime(this);" />
+
+    <input id="stopButton" type="button" value="Stop Timer" onclick="setTime(this);" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- <script async defer
@@ -68,6 +70,8 @@ curl_close ($curl_handle);
     </script> -->
     <script src="JavaScript/mapconfig.js">
     </script>
+
+    <script src="lib\timeCalculation\timeCalculation.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms&libraries=places&callback=initMap"
         async defer></script>
