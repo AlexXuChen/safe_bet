@@ -9,26 +9,46 @@ const calculateElapsedTime = (startTime, endTime) => {
     return elapsedTimeRaw.milliseconds
 }
 
+// startButton.addEventListener('click', () => {
+//     //var thisButton = element;
+//     var currentTime = new Date();
+//     console.log("here's the current time: " + currentTime);
+//     // if (element.id == "startButton") {
+//     //     console.log("Start time captured");
+//     //     startTime = currentTime;
+//     // } else {
+//     //     console.log("Stop time captured");
+//     //     stopTime = stopTime;
+//     //     calculateElapsedTime(startTime, stopTime);
+//     // }
+// });
 
-function setTime(element) {
-    var thisButton = element;
-    var currentTime = new Date();
+class Main {
+    constructor() {
+        this.startButton = document.getElementById("startButton");
+        this.startButton.addEventListener('click', () => {
+            this.timerClick;
+        })
+    }
 
-    if (element.id == "startButton") {
-        console.log("Start time captured");
-        startTime = currentTime;
-    } else {
-        console.log("Stop time captured");
-        stopTime = stopTime;
-        calculateElapsedTime(startTime, stopTime);
+    timerClick() {
+        console.log("hi");
     }
 }
 
+var main = null;
+//Initializes the main class on window load
 
 
-const safeDrivingRate = (safeTrips, totalTrips) => {
-    return safeTrips / totalTrips
-}
+
+window.addEventListener('load', () => {
+    main = new Main()
+});
+
+
+// const safeDrivingRate = (safeTrips, totalTrips) => {
+//     return safeTrips / totalTrips
+// }
 
 
 const getDate = () => {
@@ -37,12 +57,12 @@ const getDate = () => {
 
 
 
-module.exports = {
-    calculateElapsedTime,
-    safeDrivingRate,
-    getDate,
-    setTime
-}
+// module.exports = {
+//     calculateElapsedTime,
+//     safeDrivingRate,
+//     getDate,
+//     setTime
+// }
 },{"timediff":3}],2:[function(require,module,exports){
 //! moment.js
 
