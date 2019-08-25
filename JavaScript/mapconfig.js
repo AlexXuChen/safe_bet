@@ -265,7 +265,7 @@ function AutocompleteDirectionsHandler(map) {
     this.map = map;
     this.originPlaceId = null;
     this.destinationPlaceId = null;
-    this.travelMode = 'WALKING';
+    this.travelMode = 'DRIVING';
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer;
     this.directionsDisplay.setMap(map);
@@ -283,9 +283,9 @@ function AutocompleteDirectionsHandler(map) {
     // Specify just the place data fields that you need.
     destinationAutocomplete.setFields(['place_id']);
 
-    this.setupClickListener('changemode-walking', 'WALKING');
-    this.setupClickListener('changemode-transit', 'TRANSIT');
-    this.setupClickListener('changemode-driving', 'DRIVING');
+    // this.setupClickListener('changemode-walking', 'WALKING');
+    // this.setupClickListener('changemode-transit', 'TRANSIT');
+    // this.setupClickListener('changemode-driving', 'DRIVING');
 
     this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
     this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
@@ -298,17 +298,17 @@ function AutocompleteDirectionsHandler(map) {
 
 // Sets a listener on a radio button to change the filter type on Places
 // Autocomplete.
-AutocompleteDirectionsHandler.prototype.setupClickListener = function (
-    id, mode) {
-    var radioButton = document.getElementById(id);
-    var me = this;
+// AutocompleteDirectionsHandler.prototype.setupClickListener = function (
+//     id, mode) {
+//     var radioButton = document.getElementById(id);
+//     var me = this;
 
-    radioButton.addEventListener('click', function () {
-        me.travelMode = mode;
-        travelType = mode;
-        me.route();
-    });
-};
+//     radioButton.addEventListener('click', function () {
+//         me.travelMode = mode;
+//         travelType = mode;
+//         me.route();
+//     });
+// };
 
 AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
     autocomplete, mode) {
@@ -381,7 +381,6 @@ $('.mapButton').click(function () {
     destination = "place_id:" + destination;
 
 
-    console.log("This is the url for the json we need to parse: " + "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms");
 
     // $.ajax({
     //     type: "GET",
@@ -395,19 +394,19 @@ $('.mapButton').click(function () {
     // });
 
     apiUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms";
+    console.log("This is the url for the json we need to parse: " + apiUrl);
 
     $.ajax({
         type: "GET",
         dataType: "jsonp",
         url: apiUrl,
         headers: {
-            // 'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Credentials': true,
             'Access-Control-Allow-Origin': '*',
-            // 'Access-Control-Allow-Methods': 'GET',
-            // 'Access-Control-Allow-Headers': 'application/json',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'application/json',
         },
         success: function (data) {
-            console.log("hi");
             alert(data);
         }
     });
