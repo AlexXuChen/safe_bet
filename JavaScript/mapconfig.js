@@ -367,7 +367,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
-
+var apiUrl;
 
 $('.mapButton').click(function () {
     // origin = document.getElementById("origin-input").value;
@@ -383,15 +383,30 @@ $('.mapButton').click(function () {
 
     console.log("This is the url for the json we need to parse: " + "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms");
 
+    // $.ajax({
+    //     type: "GET",
+    //     url: "PHP/getETA.php",
+    //     data: {
+    //         origin: origin,
+    //         destination: destination
+    //     }
+    // }).done(function (msg) {
+    //     console.log("Data Saved: " + msg);
+    // });
+
+    apiUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms";
+
     $.ajax({
-        type: "POST",
-        url: "PHP/getETA.php",
-        data: {
-            origin: origin,
-            destination: destination
+        type: "GET",
+        dataType: "jsonp",
+        url: apiUrl,
+        crossDomain: true,
+        // xhrFields: {
+        //     withCredentials: false
+        // },
+        success: function (data) {
+            alert(data);
         }
-    }).done(function (msg) {
-        console.log("Data Saved: " + msg);
     });
 
 
