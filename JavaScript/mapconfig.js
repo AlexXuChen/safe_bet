@@ -400,6 +400,9 @@ $('.mapButton').click(function () {
         type: "GET",
         dataType: "jsonp",
         url: apiUrl,
+        data: {
+            url: apiUrl
+        },
         headers: {
             'Access-Control-Allow-Credentials': true,
             'Access-Control-Allow-Origin': '*',
