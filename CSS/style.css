@@ -1,17 +1,55 @@
 /* Always set the map height explicitly to define the size of the div
 * element that contains the map. */
+
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
+
 #map {
     height: 100%;
 }
 
 /* Optional: Makes the sample page fill the window. */
-html,
-body {
+
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Arial';
+}
+
+h2 {
+    font-family: 'Arial';
+    font-size: xx-large;
+}
+
+#appWindow {
+    position: absolute;
+    margin-top: -255px;
+    margin-left: 10px;
+}
+
+.optionButton {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.mapButton {
+    background-color: #4d90fe;
+    /* Green */
+    border: none;
+    color: white;
+    /* padding: 15px 32px; */
+    /* text-align: center; */
+    text-decoration: none;
+    /* display: inline-block; */
+    /* font-size: 16px; */
 }
 
 .controls {
@@ -25,8 +63,7 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#origin-input,
-#destination-input {
+#origin-input, #destination-input {
     background-color: #fff;
     font-family: Roboto;
     font-size: 15px;
@@ -37,8 +74,7 @@ body {
     width: 200px;
 }
 
-#origin-input:focus,
-#destination-input:focus {
+#origin-input:focus, #destination-input:focus {
     border-color: #4d90fe;
 }
 

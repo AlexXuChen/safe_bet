@@ -11,36 +11,31 @@
 </head>
 
 <body>
+    <h2 style="position: absolute; z-index: 100; margin-top: 58px;
+    margin-left: 10px;">SafeBet</h2>
     <div style="display: none">
+
         <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location">
 
         <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location">
 
         <div id="mode-selector" class="controls">
-            <!-- <input type="radio" name="type" id="changemode-walking" checked="checked">
-            <label for="changemode-walking">Walking</label>
-
-            <input type="radio" name="type" id="changemode-transit">
-            <label for="changemode-transit">Transit</label>
-
-            <input type="radio" name="type" id="changemode-driving">
-            <label for="changemode-driving">Driving</label> -->
-
             <input type="button" name="submitDest" id="mapButton" class="mapButton" value="Go">
-
         </div>
     </div>
 
     <div id="map"></div>
 
+    <div id="appWindow">
 
-    <h1>Predicted Travel Time: <span class='predictedTime' id='predictedTime'>120</span>s</h1>
+        <h1>Predicted Travel Time: <span class='predictedTime' id='predictedTime'>120</span>s</h1>
 
-    <h1>Actual Travel Time: <span id='actualTime' class='actualTime'></span>s</h1>
-    <input id="startButton" type="button" value="Start Timer" onclick="setTime(this);" />
+        <h1>Actual Travel Time: <span id='actualTime' class='actualTime'></span>s</h1>
+        <input id="startButton" type="button" value="Start Timer" class="optionButton" onclick="setTime(this);" />
 
-    <input id="stopButton" type="button" value="Stop Timer" onclick="setTime(this);" />
-
+        <input id="stopButton" type="button" value="Stop Timer" class="optionButton" style="background-color: red;"
+            onclick="setTime(this);" />
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- <script async defer
@@ -48,10 +43,10 @@
     </script> -->
     <script src="JavaScript/mapconfig.js">
     </script>
-    <script src="lib/timeCalculation/timeCalculation.js"></script>
-    <script src="lib/betting/game.js"></script>
-    <script src="lib/driver/driverData.js"></script>
-    <script src="lib/drivingRoute/drivingRoute.js"></script>
+    <script src="JavaScript/timeCalculation.js"></script>
+    <script src="JavaScript/game.js"></script>
+    <script src="JavaScript/driverData.js"></script>
+    <script src="JavaScript/drivingRoute.js"></script>
 
     <!-- <script src="lib\timeCalculation\timeCalculation.js"></script> -->
 
