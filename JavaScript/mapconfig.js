@@ -411,6 +411,9 @@ $('.mapButton').click(function () {
         },
         success: function (data) {
             alert(data);
+        },
+        error: function (error) {
+            console.log("FAIL....=================");
         }
     });
 
