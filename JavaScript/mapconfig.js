@@ -393,29 +393,33 @@ $('.mapButton').click(function () {
     //     console.log("Data Saved: " + msg);
     // });
 
-    apiUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms";
-    console.log("This is the url for the json we need to parse: " + apiUrl);
+    var herok2 = "https://cors-anywhere.herokuapp.com/";
+    // apiUrl = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&mode=driving&language=en-EN&key=AIzaSyA895_v4hGeehPltHyfxM_U4BslIEa_Sms";
+    // console.log("This is the url for the json we need to parse: " + apiUrl);
 
-    $.ajax({
-        type: "GET",
-        dataType: "jsonp",
-        url: apiUrl,
-        data: {
-            url: apiUrl
-        },
-        headers: {
-            'Access-Control-Allow-Credentials': true,
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET',
-            'Access-Control-Allow-Headers': 'application/json',
-        },
-        success: function (data) {
-            alert(data);
-        },
-        error: function (error) {
-            console.log("FAIL....=================");
-        }
-    });
+    // $.ajax({
+    //     // dataType: "jsonp",
+    //     url: apiUrl,
+    //     type: "GET",
+    //     dataType: 'jsonp',
+
+    //     // data: {
+    //     //     url: apiUrl
+    //     // },
+    //     cache: false,
+    //     headers: {
+    //         'Access-Control-Allow-Credentials': true,
+    //         'Access-Control-Allow-Origin': '*',
+    //         'Access-Control-Allow-Methods': 'GET',
+    //         'Access-Control-Allow-Headers': 'application/json',
+    //     },
+    //     success: function (data) {
+    //         alert(data);
+    //     },
+    //     error: function (error) {
+    //         console.log("FAIL....=================");
+    //     }
+    // });
 
     // $.ajax({
     //     type: "GET",
