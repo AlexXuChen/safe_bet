@@ -1,5 +1,10 @@
 var startTime;
 var stopTime;
+var timeOff;
+
+var predictedTime = document.getElementById("predictedTime").innerHTML;
+
+var timeDiff = document.getElementById("timeDiff");
 
 var actualTime = document.getElementById("actualTime");
 
@@ -7,7 +12,12 @@ const calculateElapsedTime = (startTime, endTime) => {
   const elapsedTimeRaw = (endTime - startTime) / 1000;
   console.log(elapsedTimeRaw);
 
-  actualTime.innerHTML = elapsedTimeRaw;
+  timeOff = Math.abs(predictedTime - elapsedTimeRaw).toFixed(2);
+  actualTime.innerHTML = elapsedTimeRaw.toFixed(2);
+  timeDiff.innerHTML = timeOff;
+
+
+
   return elapsedTimeRaw
 }
 
