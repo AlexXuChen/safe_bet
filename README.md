@@ -1,5 +1,9 @@
-# safe_bet
+# SafeBet
 Safe drive, safe bet
+
+# To Run
+npm install
+npm start
 
 ## Inspiration
 
