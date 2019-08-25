@@ -400,14 +400,23 @@ $('.mapButton').click(function () {
         type: "GET",
         dataType: "jsonp",
         url: apiUrl,
-        headers: {
-            'Access-Control-Allow-Credentials': true,
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET',
-            'Access-Control-Allow-Headers': 'application/json',
+        contentType: 'application/json',
+        responseType:'application/json',
+        crossDomain: true,
+        xhrFields: {
+            withCredentials: false
         },
+        headers: {
+            'Access-Control-Allow-Credentials' : true,
+            'Access-Control-Allow-Origin':'*',
+            'Access-Control-Allow-Methods':'GET',
+            'Access-Control-Allow-Headers':'application/json',
+          },
         success: function (data) {
             alert(data);
+        },
+        error: function(error) {
+            console.log("FAIL....=================");
         }
     });
 
