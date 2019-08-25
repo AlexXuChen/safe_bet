@@ -8,20 +8,20 @@ const calculateElapsedTime = (startTime, endTime) => {
     return elapsedTimeRaw.milliseconds
 }
 
-
-function setTime(element) {
-    var thisButton = element;
+var startButton = document.getElementById("startButton");
+startButton.addEventListener('click', () => {
+    //var thisButton = element;
     var currentTime = new Date();
-
-    if (element.id == "startButton") {
-        console.log("Start time captured");
-        startTime = currentTime;
-    } else {
-        console.log("Stop time captured");
-        stopTime = stopTime;
-        calculateElapsedTime(startTime, stopTime);
-    }
-}
+    console.log("here's the current time: " + currentTime);
+    // if (element.id == "startButton") {
+    //     console.log("Start time captured");
+    //     startTime = currentTime;
+    // } else {
+    //     console.log("Stop time captured");
+    //     stopTime = stopTime;
+    //     calculateElapsedTime(startTime, stopTime);
+    // }
+});
 
 
 
